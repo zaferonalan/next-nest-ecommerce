@@ -4,16 +4,22 @@
   "files": [],
   "references": [
     {
-      "path": "./packages/strings"
+      "path": "./apps/api"
     },
     {
-      "path": "./packages/colors"
+      "path": "./apps/web"
     },
     {
-      "path": "./packages/async"
+      "path": "./packages/config"
     },
     {
-      "path": "./packages/utils"
+      "path": "./packages/database"
+    },
+    {
+      "path": "./packages/schemas"
+    },
+    {
+      "path": "./packages/ui"
     }
   ],
   "compilerOptions": {}
