@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "nx": {
-    "tags": ["type:app", "scope:backend"],
+    "tags": [
+      "type:app",
+      "scope:backend"
+    ],
     "targets": {
       "build": {
         "executor": "nx:run-commands",
@@ -85,6 +88,7 @@
     "@org/config": "workspace:*",
     "@org/database": "workspace:*",
     "@org/schemas": "workspace:*",
+    "nestjs-zod": "^5.4.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0"
