@@ -89,6 +89,7 @@
     "@org/config": "workspace:*",
     "@org/database": "workspace:*",
     "@org/schemas": "workspace:*",
+    "argon2": "^0.45.0",
     "nestjs-zod": "^5.4.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0",
