@@ -1,11 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfig } from "@nestjs/config";
 import { AppEnv, mergedEnvSchema } from '@org/schemas';
+import jwtConfig from './jwt.config.js';
+import refreshConfig from './refresh.config.js';
 
 @Module({
   imports: [
     NestConfig.forRoot({
         isGlobal: true,
+        load: [jwtConfig, refreshConfig],
         validate(config):AppEnv {
             const result = mergedEnvSchema.safeParse(config)
 
@@ -19,6 +22,6 @@ import { AppEnv, mergedEnvSchema } from '@org/schemas';
   ],
   controllers: [],
   providers: [],
-  exports: []
+  exports: [NestConfig]
 })
 export class ConfigModule {}

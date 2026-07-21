@@ -23,7 +23,12 @@
   },
   "dependencies": {
     "@nestjs/config": "^4.0.4",
+    "@nestjs/jwt": "^11.0.2",
     "@org/schemas": "workspace:*",
+    "ms": "^2.1.3",
     "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/ms": "^2.1.0"
   }
 }
