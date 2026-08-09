@@ -9,20 +9,19 @@
     ],
     "targets": {
       "build": {
-        "executor": "nx:run-commands",
+        "executor": "@nx/js:tsc",
+        "outputs": ["{options.outputPath}"],
         "options": {
-          "command": "webpack-cli build",
-          "env": {
-            "NODE_ENV": "production"
-          },
-          "cwd": "apps/api"
+          "outputPath": "apps/api/dist",
+          "main": "apps/api/src/main.ts",
+          "tsConfig": "apps/api/tsconfig.app.json",
+          "assets": [
+            "apps/api/src/assets"
+          ]
         },
         "configurations": {
-          "development": {
-            "env": {
-              "NODE_ENV": "development"
-            }
-          }
+          "development": {},
+          "production": {}
         }
       },
       "prune-lockfile": {
@@ -88,19 +87,26 @@
     "@nestjs/jwt": "^11.0.2",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/swagger": "^11.4.6",
     "@org/config": "workspace:*",
     "@org/database": "workspace:*",
     "@org/schemas": "workspace:*",
     "@types/passport-jwt": "^4.0.1",
+    "@types/passport-local": "^1.0.38",
     "argon2": "^0.45.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
     "ms": "^2.1.3",
     "nestjs-zod": "^5.4.0",
     "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@nestjs/testing": "^11.0.0"
+    "@nestjs/testing": "^11.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6"
   }
 }

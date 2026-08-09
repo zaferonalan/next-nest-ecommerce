@@ -1,5 +1,5 @@
 import z from "zod";
-import { Role } from "@org/database";
+import { roleSchema } from "./role.schema.js";
 
 export const responseSchema = z.object({
     user: z.object({
@@ -7,7 +7,7 @@ export const responseSchema = z.object({
         email: z.string(),
         firstName: z.string().optional(),
         lastName: z.string().optional(),
-        role: z.enum(Role)
+        role: roleSchema
     }),
     accessToken: z.string(),
     refreshToken: z.string()

@@ -1,3 +1,8 @@
 export { type AppEnv, mergedEnvSchema } from "./env/merged-env.schema.js"
 export { type RegisterInput, registerSchema } from "./auth/register.schema.js"
 export { type ResponseInput, responseSchema } from "./auth/response.schema.js"
+export { type CreateUserInput, createUserSchema } from "./user/createUser.schema.js"
+export { type AuthUser, authUserSchema} from "./auth/authUser.schema.js"
+export { type RoleType, roleSchema } from "./auth/role.schema.js"
+export { type SuccessAuth, successSchema} from "./auth/success.schema.js"
+export { type LoginUser, loginUserSchema} from "./auth/login.schema.js"

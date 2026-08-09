@@ -17,10 +17,6 @@ export const registerSchema = z.object({
         .regex(/[!@#$%^&*(),.?":{}|<>]/, {
             error: "Password must contain at least one special character.",
         }),
-    firstName: z.string().optional(),
-    lastName: z.string().optional()
 })
 
 export type RegisterInput = z.infer<typeof registerSchema>
-
-

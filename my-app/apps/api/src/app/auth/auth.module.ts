@@ -5,10 +5,12 @@ import { PrismaModule } from '@org/database';
 import { JwtModule } from "@nestjs/jwt";
 import { jwtConfig } from '@org/config';
 import { ConfigModule, ConfigType } from '@nestjs/config';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [
     PrismaModule, 
+    UserModule,
     ConfigModule, 
     JwtModule.registerAsync({
       imports: [ConfigModule],

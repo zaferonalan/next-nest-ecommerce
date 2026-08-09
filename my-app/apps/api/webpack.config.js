@@ -1,5 +1,6 @@
 const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
 const { join } = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   output: {
@@ -9,6 +10,13 @@ module.exports = {
       devtoolModuleFilenameTemplate: '[absolute-resource-path]',
     }),
   },
+  externals: [nodeExternals({
+      modulesFromFile: true,
+      additionalModuleDirs: [join(__dirname, '../../node_modules')],
+  })],
+  // externals: {
+  //   argon2: 'commonjs argon2',
+  // },
   plugins: [
     new NxAppWebpackPlugin({
       target: 'node',

@@ -10,5 +10,22 @@
     "target": "es2021"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["eslint.config.js", "eslint.config.cjs", "eslint.config.mjs"]
+  "exclude": [
+  "**/*.spec.ts",
+  "**/*.test.ts",
+  "eslint.config.js",
+  "eslint.config.cjs",
+  "eslint.config.mjs"
+  ],
+  "references": [
+    {
+      "path": "../../packages/schemas/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/database/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/config/tsconfig.lib.json"
+    }
+  ]
 }
