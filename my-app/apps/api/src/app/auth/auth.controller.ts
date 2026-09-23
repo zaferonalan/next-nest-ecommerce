@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards, Request, Res, Get, } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards, Request, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register-dto';
 import { LocalAuthGuard } from './guards/local-auth/local-auth.guard';
@@ -27,21 +27,6 @@ export class AuthController {
 
 
   @ApiOperation({
-    summary: 'Get current user'
-  })
-  @ApiCookieAuth('accessToken')
-  @ApiUnauthorizedResponse({description: 'Access token missing or invalid'})
-  @UseGuards(JwtAuthGuard)
-  @ZodResponse({
-    type: AuthUserDto
-  })
-  @Get('me')
-  async getMe(@Request() req: { user: AuthUserDto}){
-    return req.user
-  }
-
-
-  @ApiOperation({
     summary: "Register a new user"
   })
   @ApiConflictResponse({description: 'Email already in use'})
@@ -59,23 +44,6 @@ export class AuthController {
   @ApiOperation({
     summary: "Sign in"
   })
-// @ApiBody({
-//   schema: {
-//     type: 'object',
-//     properties: {
-//       email: {
-//         type: 'string',
-//         format: 'email',
-//         example: 'user@example.com',
-//       },
-//       password: {
-//         type: 'string',
-//         example: 'Password123!',
-//       },
-//     },
-//     required: ['email', 'password'],
-//   },
-// })
   @ApiUnauthorizedResponse({description: 'Invalid credentials'})
   @ZodResponse({
     description: "Signed in successfully",
