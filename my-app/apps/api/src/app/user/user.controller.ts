@@ -22,7 +22,7 @@ import type{ AuthenticatedRequest } from '../auth/types/AuthenticatedRequest';
 import { ChangePasswordDto } from './dto/changePassword.dto';
 
 @ApiTags('users')
-@ApiCookieAuth('jwt')
+@ApiCookieAuth('accessToken')
 // @UseGuards(JwtAuthGuard,RoleGuard)
 @Controller('users')
 export class UserController {
@@ -49,7 +49,6 @@ export class UserController {
   @ApiOperation({
     summary: 'Get current user'
   })
-  @ApiCookieAuth('accessToken')
   @ApiUnauthorizedResponse({description: 'Access token missing or invalid'})
   @UseGuards(JwtAuthGuard)
   @ZodResponse({
@@ -63,8 +62,9 @@ export class UserController {
 
   @Get(':id')
   @ApiOperation({summary: 'Get user by Id'})
+  @UseGuards(JwtAuthGuard,RoleGuard)
   @Roles(Role.ADMIN)
-  @ApiUnauthorizedResponse({description: "User not found"})
+  @ApiUnauthorizedResponse({description: "Access token missing or invalid"})
   @ApiForbiddenResponse({description: "Admin role required"})
   @ApiNotFoundResponse({description: 'user not found'})
   @ZodResponse({
