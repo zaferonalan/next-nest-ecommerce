@@ -7,9 +7,10 @@ import { ZodValidationPipe } from 'nestjs-zod';
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from '@org/database';
 import { UserModule } from './user/user.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
-  imports: [ConfigModule, AuthModule, PrismaModule, UserModule],
+  imports: [ConfigModule, AuthModule, PrismaModule, UserModule, CategoryModule],
   controllers: [AppController],
   providers: [AppService, { provide: APP_PIPE, useClass: ZodValidationPipe }],
 })
