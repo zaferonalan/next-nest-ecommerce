@@ -14,3 +14,9 @@ export { type CategoryResponseType, categoryResponseSchema } from "./category/ca
 export { type QueryCategoryType, queryCategorySchema } from "./category/query-category.schema.js"
 export { type CategoryListResponseType, categoryListResponseSchema } from './category/categoryList-response.schema.js'
 export { type UpdateCategoryType, updateCategorySchema } from './category/update-category.schema.js'
+export { type CreateProductType, createProductSchema } from './product/create-products.schema.js'
+export { type ProductResponseType, productResponseSchema } from './product/product-response.dto.js'
+export { type ProductListResponseType, productListResponseSchema } from './product/productList-response.schema.js'
+export { type QueryProductType, queryProductSchema } from './product/query-product.schema.js'
+export { type UpdateProductType, updateProductSchema } from './product/update-product.schema.js'
+export { type UpdateProductStockType, updateProductStockSchema } from './product/update-ProductStock.schema.js'

@@ -8,9 +8,17 @@ import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from '@org/database';
 import { UserModule } from './user/user.module';
 import { CategoryModule } from './category/category.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
-  imports: [ConfigModule, AuthModule, PrismaModule, UserModule, CategoryModule],
+  imports: [
+    ConfigModule,
+    AuthModule,
+    PrismaModule,
+    UserModule,
+    CategoryModule,
+    ProductsModule,
+  ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_PIPE, useClass: ZodValidationPipe }],
 })
