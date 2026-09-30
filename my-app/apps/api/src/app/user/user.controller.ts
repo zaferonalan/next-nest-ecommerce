@@ -13,7 +13,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 import { RoleGuard } from '../auth/guards/roles/role.guard';
 import { UserResponseDto } from './dto/userResponse.dto';
 import { UserService } from './user.service';
-import { Roles } from '../auth/decerators/roles.decerators';
+import { Roles } from '../decerators/roles.decerators';
 import { Role } from '@org/database';
 import { ZodResponse } from 'nestjs-zod';
 import { AuthUserDto } from '../auth/dto/authUser.dto';

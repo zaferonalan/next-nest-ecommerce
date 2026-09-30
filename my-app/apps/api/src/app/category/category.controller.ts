@@ -3,7 +3,7 @@ import { CategoryService } from './category.service';
 import { ApiBadRequestResponse, ApiBody, ApiConflictResponse, ApiCookieAuth, ApiForbiddenResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 import { RoleGuard } from '../auth/guards/roles/role.guard';
-import { Roles } from '../auth/decerators/roles.decerators';
+import { Roles } from '../decerators/roles.decerators';
 import { Role } from '@org/database';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { CategoryResponseDto } from './dto/category-response.dto';
