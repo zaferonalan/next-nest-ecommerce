@@ -1,5 +1,5 @@
 import z from "zod";
-import { productResponseSchema } from "./product-response.dto.js";
+import { productResponseSchema } from "./product-response.schema.js";
 
 export const productListResponseSchema = z.object({
     data: z.array(productResponseSchema),
