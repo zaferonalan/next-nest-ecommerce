@@ -10,7 +10,8 @@ import { UserModule } from './user/user.module';
 import { CategoryModule } from './category/category.module';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
-import { ThrottlerModule } from '@nestjs/throttler'
+import { ThrottlerModule } from '@nestjs/throttler';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -21,10 +22,13 @@ import { ThrottlerModule } from '@nestjs/throttler'
     CategoryModule,
     ProductsModule,
     OrdersModule,
-    ThrottlerModule.forRoot([{
-      ttl: 60,
-      limit: 10
-    }])
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60,
+        limit: 10,
+      },
+    ]),
+    PaymentModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_PIPE, useClass: ZodValidationPipe }],

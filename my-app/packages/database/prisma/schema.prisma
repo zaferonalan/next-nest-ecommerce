@@ -33,7 +33,7 @@ enum PaymentStatus {
   REFUNDED
 }
 
-enum Curreny {
+enum Currency {
   TRY
   USD
   EUR
@@ -152,7 +152,7 @@ model Order {
 
   shippingAddress String?
   orderItems      OrderItem[]
-  payment         Payment?
+  payment         Payment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -179,12 +179,14 @@ model Cart {
 }
 
 model Payment {
-  id            String        @id @default(uuid())
-  amount        Decimal       @db.Decimal(10, 2)
-  status        PaymentStatus @default(PENDING)
-  currency      Curreny       @default(USD)
-  paymentMethod String?
-  transactionId String?       @unique
+  id                String        @id @default(uuid())
+  amount            Decimal       @db.Decimal(10, 2)
+  status            PaymentStatus @default(PENDING)
+  currency          Currency      @default(USD)
+  paymentMethod     String?
+  // transactionId String?       @unique
+  providerPaymentId String?       @unique
+  providerToken     String?       @unique
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -196,6 +198,6 @@ model Payment {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
-  @@index([transactionId])
+  @@index([orderId])
   @@map("payments")
 }
